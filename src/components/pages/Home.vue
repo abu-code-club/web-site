@@ -9,9 +9,9 @@
                 <v-btn flat :to="{name: 'Announcements'}">Announcements</v-btn>
                 <v-btn flat :to="{name: 'Events'}">Events</v-btn>
                 <v-btn flat :to="{name: 'Team'}">Team</v-btn>
-                <v-btn flat @click="signInDialog = true">Sign in</v-btn>
-                <v-btn flat @click="signUpDialog = true">Sign up</v-btn>
-
+                <v-btn flat v-if="!isSignedIn" @click="signInDialog = true">Sign in</v-btn>
+                <v-btn flat v-if="!isSignedIn" @click="signUpDialog = true">Sign up</v-btn>
+                <v-btn flat v-if="isSignedIn" @click="signOut">Sign out</v-btn>
             </v-toolbar-items>
         </v-toolbar>
 
@@ -27,7 +27,7 @@
 <script>
 import SignIn from '@/components/Signin.vue'
 import SignUp from '@/components/Signup.vue'
-
+import {authentication} from '../../firebase'
 export default{
     components:{
         SignIn,
@@ -35,7 +35,7 @@ export default{
     },
     data () {
         return {
-            
+            isSignedIn: false,
             signUpDialog: false,
             signInDialog: false,
             active: null,
@@ -44,12 +44,22 @@ export default{
     },
     created(){
         //this.$router.push({name: 'Announcements'});
+        authentication.onAuthStateChanged(user => {
+            this.isSignedIn = user != null;
+        })
     },
     methods:{
+        openSignInDialog(){
+            this.signInDialog = true;
+        },
         cancelDialog(param){
             this.signInDialog = param;
             this.signUpDialog = param;
 
+        },
+        signOut(){
+            this.$store.dispatch('signOut');
+            
         }
     },
     computed:{

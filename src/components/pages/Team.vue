@@ -28,7 +28,7 @@ export default{
                     name: 'Mock User1',
                     email: 'mock.user@mail.com',
                     picture: '/assets/profile.png',
-                    content: 'Team Leader<br>Senior Computer Engineering Student',
+                    content: 'Team Leader',
                 },
                 {
                     uuid: '1293819238123123812098312',

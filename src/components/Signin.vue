@@ -11,6 +11,7 @@
                             <v-text-field
                             name="input-10-2"
                             label="Enter your email"
+                            v-model="user.email"
                             ></v-text-field>  
                         </v-flex>                  
                     </v-layout>            
@@ -21,6 +22,7 @@
                             :append-icon="password ? 'visibility' : 'visibility_off'"
                             :append-icon-cb="() => (password = !password)"
                             :type="password ? 'password' : 'text'"
+                            v-model="user.password"
                             ></v-text-field>  
                         </v-flex>                  
                     </v-layout>                    
@@ -28,7 +30,7 @@
                     <v-card-actions>
                             <v-spacer></v-spacer>
                             <v-btn color="blue darken-1" flat @click="cancel">Close</v-btn>
-                            <v-btn color="blue darken-1" flat >Sign in</v-btn>
+                            <v-btn color="blue darken-1" flat @click="signIn">Sign in</v-btn>
                     </v-card-actions>                
                 </v-card>
         </v-dialog>   
@@ -39,13 +41,23 @@
 export default{
     props: ['dialog'],
     data(){
-            return {
-                password: true
-            }
+        return {
+            user: {
+                email: '',
+                password: '',
+            },
+            password: true
+        }
     },
     methods:{
         cancel(){
             this.$emit('updateDialog', false);
+        },
+        signIn(){
+            this.$store.dispatch('signIn', this.user)
+            .then(user => {
+                this.cancel();
+            })
         }
     }    
 }    

@@ -5,6 +5,16 @@ import App from './App'
 import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import Vuex from 'vuex'
+import storeModules from './store'
+
+
+Vue.use(Vuex)
+
+const store = new Vuex.Store({
+  modules: storeModules,
+})
+
 
 Vue.use(Vuetify, { theme: {
   primary: '#1976D2',
@@ -22,6 +32,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
