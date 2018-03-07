@@ -5,6 +5,7 @@
 Technologies that are used
 
 * [Vue JS](https://vuejs.org/) - View Javascript framework
+* [VueFire](https://github.com/vuejs/vuefire) - Firebase library for Vue JS
 * [Vuetify](https://vuetifyjs.com/en/) - Material Design CSS Framework for Vue Js
 * [Firebase](https://firebase.google.com/) - Data Storage System
 
