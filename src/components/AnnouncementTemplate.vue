@@ -1,9 +1,10 @@
 <template>
     <div>
-        <v-card>
+        <v-card class="card-space">
             <v-card-title class="title grey--text text--darken-4">
                 {{ announcement.title }}
             </v-card-title>
+            <v-divider></v-divider>
             <v-card-text class="grey--text text--darken-3">
                 {{ announcement.content }}
             </v-card-text>
@@ -20,6 +21,7 @@
                 
             </v-card-actions>
         </v-card>
+      
     </div>
 </template>
 <script>
@@ -34,5 +36,8 @@ export default{
 }
 </script>
 <style>
+    .card-space{
+        margin-bottom: 10px;
+    }
 
 </style>

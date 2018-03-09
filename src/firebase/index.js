@@ -3,12 +3,12 @@ import fb from 'firebase';
 
 const app = initializeApp(
     {
-        apiKey: "",
-        authDomain: "",
-        databaseURL: "",
-        projectId: "",
-        storageBucket: "",
-        messagingSenderId: ""
+        apiKey: "AIzaSyCn2CvoT1BPHeZo0OYT1EYqr8QRdOgHnEE",
+        authDomain: "code-club-demo-95047.firebaseapp.com",
+        databaseURL: "https://code-club-demo-95047.firebaseio.com",
+        projectId: "code-club-demo-95047",
+        storageBucket: "code-club-demo-95047.appspot.com",
+        messagingSenderId: "441133098429"
       }
 );
 

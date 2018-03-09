@@ -11,9 +11,9 @@ Technologies that are used
 #### ToDo
 - [ ] Style 
 - [x] Registration Page
-- [ ] Registration Firebase Implementation 
+- [x] Registration Firebase Implementation 
 - [x] Login Page
-- [ ] Login Firebase Implementation
+- [x] Login Firebase Implementation
 - [ ] Event Management Page
 - [ ] Event Management Firebase Implementation
 - [x] Event List Page

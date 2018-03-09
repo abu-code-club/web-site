@@ -74,7 +74,12 @@ export default{
             this.$emit('updateDialog', false);
         },
         signUp(){
-            this.$store.dispatch('signUp', this.user);
+            this.$store.dispatch('signUp', this.user)
+            .then(response => {
+                if(response.uid.length > 0){
+                    this.cancel();
+                }
+            });
         }
     },
     computed:{

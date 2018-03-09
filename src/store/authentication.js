@@ -12,9 +12,10 @@ export default{
         signUp(context, user){
             return authentication.createUserWithEmailAndPassword(user.email, user.password)   
             .then(response => {
-                context.dispatch('signIn', user)
+                return context.dispatch('signIn', user)
                 .then(resp => {
                    context.dispatch('updateProfile', user);
+                    return resp;
                 });
             });
         },
